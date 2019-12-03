@@ -14,6 +14,9 @@
   <strong>Category:</strong>
   <%= @efimeride.category_id %>
 </p>
+<%= image_tag(@efimeride.image.to_s) %>
+
+<%= image_tag(@efimeride.image.url, alt: 'Image') if @efimeride.image? %>
 
 <%= link_to 'Edit', edit_efimeride_path(@efimeride) %> |
 <%= link_to 'Back', efimerides_path %>

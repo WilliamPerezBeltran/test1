@@ -70,6 +70,6 @@ class EfimeridesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def efimeride_params
-      params.require(:efimeride).permit(:date, :text, :category_id)
+      params.require(:efimeride).permit(:date, :text, :category_id, :image)
     end
 end
