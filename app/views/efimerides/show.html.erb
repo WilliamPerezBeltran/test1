@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @efimeride.date %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @efimeride.text %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @efimeride.category_id %>
+</p>
+
+<%= link_to 'Edit', edit_efimeride_path(@efimeride) %> |
+<%= link_to 'Back', efimerides_path %>
