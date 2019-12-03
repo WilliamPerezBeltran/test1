@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EfimeridesController < ApplicationController
-  before_action :set_efimeride, only: [:show, :edit, :update, :destroy]
+  before_action :set_efimeride, only: %i[show edit update destroy]
 
   # GET /efimerides
   # GET /efimerides.json
@@ -9,8 +11,7 @@ class EfimeridesController < ApplicationController
 
   # GET /efimerides/1
   # GET /efimerides/1.json
-  def show
-  end
+  def show; end
 
   # GET /efimerides/new
   def new
@@ -19,8 +20,7 @@ class EfimeridesController < ApplicationController
   end
 
   # GET /efimerides/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /efimerides
   # POST /efimerides.json
@@ -63,13 +63,14 @@ class EfimeridesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_efimeride
-      @efimeride = Efimeride.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def efimeride_params
-      params.require(:efimeride).permit(:date, :text, :category_id, :image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_efimeride
+    @efimeride = Efimeride.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def efimeride_params
+    params.require(:efimeride).permit(:date, :text, :category_id, :image)
+  end
 end
