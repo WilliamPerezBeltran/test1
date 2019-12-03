@@ -1,38 +1,39 @@
 <%= form_with(model: efimeride, local: true) do |form| %>
-  <% if efimeride.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(efimeride.errors.count, "error") %> prohibited this efimeride from being saved:</h2>
+<% if efimeride.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(efimeride.errors.count, "error") %> prohibited this efimeride from being saved:</h2>
 
-      <ul>
-        <% efimeride.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% efimeride.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_field :date %>
+<div class="field">
+  <%= form.label :date %>
+  <%= form.date_field :date %>
+</div>
+
+<div class="field">
+  <%= form.label :text %>
+  <%= form.text_field :text %>
+</div>
+
+<div class="field">
+  <%= form.label :category_id %>
+
+  <%=  select("efimeride", "category_id", Category.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Seleccione la categoria', selected: '', disabled: ''})
+  %>
+</div>
+
+<div class="field">
+  <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_field :text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category_id %>
-
-    <%=  select("efimeride", "category_id", Category.all.collect {|p| [ p.name, p.id ] }, {prompt: 'Seleccione la categoria', selected: '', disabled: ''})
- %>
-
-   
-
-
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>
